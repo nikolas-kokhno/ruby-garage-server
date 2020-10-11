@@ -8,7 +8,7 @@ import { taskValidations } from './validations/task';
 
 const app = express();
 app.use(cors());
-const PORT = 7777;
+const PORT = process.env.PORT || 7777;
 
 app.use(express.json());
 
@@ -23,9 +23,5 @@ app.patch('/tasks/:id', taskValidations, TaskCtrl.update);
 app.delete('/tasks/:id', TaskCtrl.delete);
 
 app.listen(PORT, () => {
-  console.log(`SERVER IS RUNNING - http://localhost:${PORT}`);
+  console.log(`SERVER IS RUNNING - ${PORT} port`);
 });
-
-/* TODO:
-  - Add validation to check ID params;
-*/
