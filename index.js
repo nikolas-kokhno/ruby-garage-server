@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import './core/db';
 import { ProjectCtrl } from './controllers/ProjectController';
 import { TaskCtrl } from './controllers/TaskController';
@@ -6,6 +7,7 @@ import { projectValidations } from './validations/project';
 import { taskValidations } from './validations/task';
 
 const app = express();
+app.use(cors());
 const PORT = 7777;
 
 app.use(express.json());
